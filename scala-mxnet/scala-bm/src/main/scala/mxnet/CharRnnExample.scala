@@ -1,6 +1,6 @@
 package mxnet
 
-import org.apache.mxnet.{Context, Model, NDArrayCollector}
+import org.apache.mxnet.{Context, Model, NDArrayCollector, Profiler}
 import org.kohsuke.args4j.{CmdLineParser, Option}
 
 import scala.collection.JavaConverters._
@@ -67,6 +67,16 @@ object CharRnnExample {
         println("Inference time at iteration: %d is : %f \n".format(i, estimatedTime))
       }
     }
+
+    val path = "/tmp/profiler.json"
+    val kwargs = Map("filename" -> path, "profile_" + "all" -> "1", "aggregate_stats" -> "true")
+    Profiler.profilerSetConfig(kwargs)
+    Profiler.profilerSetState("run")
+    val startTime = System.nanoTime()
+    Utils.runPrediction(model, starterSentence, vocab)
+    val estimatedTime = (System.nanoTime() - startTime) / (1e6 * 1.0)
+    Profiler.profilerSetState("stop")
+    println("Inference time at Profiling is %f \n".format(estimatedTime))
 
     inferenceTimes
 
