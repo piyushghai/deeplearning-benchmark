@@ -8,6 +8,7 @@ hw_type=cpu
 if [[ $1 = gpu ]]
 then
     hw_type=gpu
+    export SCALA_TEST_ON_GPU=1
 fi
 
 SCALA_VERSION_PROFILE=2.11
