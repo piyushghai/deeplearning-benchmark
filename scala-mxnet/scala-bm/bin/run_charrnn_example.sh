@@ -38,4 +38,4 @@ java -Xmx8G -Dmxnet.traceLeakedObjects=true -cp $CLASSPATH mxnet.CharRnnExample 
 --data-path $DATA_PATH \
 --starter-sentence "$STARTER_SENTENCE" \
 --times $RUNS \
---context hw_type
+--context $hw_type

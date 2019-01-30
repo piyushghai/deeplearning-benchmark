@@ -38,4 +38,4 @@ java -Xmx8G -Dmxnet.traceLeakedObjects=true -cp $CLASSPATH mxnet.SSDObjectDetect
 --inputImagePath $INPUT_IMG \
 --batchSize $BATCHSIZE \
 --times $RUNS \
---context hw_type
+--context $hw_type
