@@ -11,7 +11,7 @@ object Utils {
   def getContext(ctxString : String): Context = {
 
     var context = Context.cpu()
-    if (ctxString.equals("gpu") {
+    if (ctxString.equals("gpu")) {
       context = Context.gpu()
     }
 
