@@ -76,6 +76,7 @@ object CharRnnExample {
     Utils.runPrediction(model, starterSentence, vocab)
     val estimatedTime = (System.nanoTime() - startTime) / (1e6 * 1.0)
     Profiler.profilerSetState("stop")
+    Profiler.dumpProfile(1)
     println("Inference time at Profiling is %f \n".format(estimatedTime))
 
     inferenceTimes
