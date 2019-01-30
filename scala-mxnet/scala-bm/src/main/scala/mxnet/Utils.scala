@@ -10,8 +10,9 @@ object Utils {
 
   def getContext(ctxString : String): Context = {
 
+    println("Context String  : " + ctxString)
     var context = Context.cpu()
-    if (ctxString.equals("gpu")) {
+    if (ctxString.equalsIgnoreCase("gpu")) {
       context = Context.gpu()
     }
 
