@@ -8,11 +8,10 @@ import scala.util.Random
 
 object Utils {
 
-  def getContext(): Context = {
+  def getContext(ctxString : String): Context = {
 
     var context = Context.cpu()
-    if (System.getenv().containsKey("SCALA_TEST_ON_GPU") &&
-      System.getenv("SCALA_TEST_ON_GPU").toInt == 1) {
+    if (ctxString.equals("gpu") {
       context = Context.gpu()
     }
 

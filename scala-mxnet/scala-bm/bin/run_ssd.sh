@@ -8,7 +8,6 @@ hw_type=cpu
 if [[ $1 = gpu ]]
 then
     hw_type=gpu
-    export SCALA_TEST_ON_GPU=1
 fi
 
 
@@ -38,4 +37,5 @@ java -Xmx8G -Dmxnet.traceLeakedObjects=true -cp $CLASSPATH mxnet.SSDObjectDetect
 --modelPathPrefix $MODEL_PATH_PREFIX \
 --inputImagePath $INPUT_IMG \
 --batchSize $BATCHSIZE \
---times $RUNS
+--times $RUNS \
+--context hw_type
